@@ -3,7 +3,11 @@ const app = express();
 const dotenv = require('dotenv');
 dotenv.config();
 const PORT = process.env.Port || 3000;
-// console.log(PORT);
+const connectToDB = require('./config/db');
+connectToDB();
+
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
 
 
 app.get('/',(req,res)=>{
